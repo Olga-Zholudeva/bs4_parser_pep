@@ -7,7 +7,6 @@ from prettytable import PrettyTable
 from constants import BASE_DIR, DATETIME_FORMAT
 
 
-
 def control_output(results, cli_args):
     """Контроль действий, укзанных в командной строке."""
 
@@ -20,6 +19,7 @@ def control_output(results, cli_args):
         outputs[output](results)
     else:
         file_output(results, cli_args)
+
 
 def default_output(results):
     """Печатаем список results построчно."""
