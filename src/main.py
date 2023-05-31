@@ -1,5 +1,6 @@
 import logging
 import re
+from collections import defaultdict
 from urllib.parse import urljoin
 
 import requests_cache
@@ -65,11 +66,7 @@ def latest_versions(session):
     for a_tag in a_tags:
         link = a_tag['href']
         text_match = re.search(pattern, a_tag.text)
-        if text_match:
-            version, status = text_match.groups()
-        else:
-            version = a_tag.text
-            status = ''
+        version, status = text_match.groups() if text_match else a_tag.text, ''
         results.append(
             (link, version, status)
         )
@@ -109,7 +106,7 @@ def pep(session):
     soup = BeautifulSoup(response.text, 'lxml')
     main_table = soup.find('section', id='numerical-index')
     all_peps = main_table.find_all('tr')
-    statuses = {}
+    statuses = defaultdict(int)
     results = [('Статус', 'Количество')]
     for side in tqdm(all_peps[1:]):
         status_main_page = side.find('abbr').text[1:]
@@ -128,10 +125,7 @@ def pep(session):
                 f'Статус в карточке: {status_on_the_page}''\n'
                 f'Ожидаемые статусы: {EXPECTED_STATUS[status_main_page]}''\n'
             )
-        if status_on_the_page in statuses:
-            statuses[status_on_the_page] += 1
-        else:
-            statuses[status_on_the_page] = 1
+        statuses[status_on_the_page] += 1
     for key, value in statuses.items():
         record = (key, value)
         results.append(record)
