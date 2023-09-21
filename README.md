@@ -18,9 +18,9 @@
 
 ## Запуск проекта:
 
-- Клонируем репозиторий: git clone https://github.com/Olga-Zholudeva/bs4_parser_pep.git
-- Cоздаем и активировируем виртуальное окружение: python3 -m venv env source env/bin/activate
-- Устанавливаем зависимости из файла requirements.txt: pip install -r requirements.txt  
+- Клонируем репозиторий: **git clone [bs4_parser_pep](https://github.com/Olga-Zholudeva/bs4_parser_pep.git)**
+- Cоздаем и активировируем виртуальное окружение: **python3 -m venv env source env/bin/activate**
+- Устанавливаем зависимости из файла requirements.txt: **pip install -r requirements.txt**
 
 ## Примеры команд для получения данных парсинга:
 
