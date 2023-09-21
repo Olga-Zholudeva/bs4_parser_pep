@@ -24,10 +24,10 @@
 
 ## Примеры команд для получения данных парсинга:
 
-- Вызов справки: python main.py -h
-- Запуск парсера с выводом данных в терминал: python main.py whats-new
-- Выгрузка архива документации Python: python main.py download
-- Выгрузка данных в csv файл: python main.py pep --output file
+- Вызов справки: **python main.py -h**
+- Запуск парсера с выводом данных в терминал: **python main.py whats-new**
+- Выгрузка архива документации Python: **python main.py download**
+- Выгрузка данных в csv файл: **python main.py pep --output file**
 
 ## Проект выполнила: 
 
